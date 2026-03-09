@@ -21,6 +21,7 @@
 
       /* 이미지 속 검은색 카드 디자인 */
       #display {
+        position: relative;
         width: 85%;
         height: 50%;
         background-color: #1a1a1a;
@@ -35,6 +36,16 @@
         text-align: center;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         margin-bottom: 60px;
+      }
+
+      .source {
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        font-size: 0.35em;
+        color: #888;
+        text-align: right;
+        line-height: 1.4;
       }
 
       /* 아이들이 누르기 좋은 크고 예쁜 버튼 */
@@ -56,7 +67,10 @@
     </style>
   </head>
   <body>
-    <div id="display">버튼을 누르면<br />이야기 주제가 나타나요!</div>
+    <div id="display">
+      <span id="topic">버튼을 누르면<br />이야기 주제가 나타나요!</span>
+      <span class="source">고마워요..ㅠㅠ<br /><br />[출처 : 「초등학생이 좋아하는 글쓰기 소재365」, 민상기 지음]</span>
+    </div>
     <button onclick="pickRandom()">나의 깔깔이야기 주제는?</button>
 
     <script>
@@ -430,7 +444,7 @@
 
       function pickRandom() {
         const randomIndex = Math.floor(Math.random() * topics.length);
-        document.getElementById("display").innerHTML = topics[randomIndex];
+        document.getElementById("topic").innerHTML = topics[randomIndex];
       }
 
       // 엔터키와 터치/클릭 모두 지원
